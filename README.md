@@ -46,10 +46,16 @@ Supported expression conversion includes common arithmetic, powers, roots, trigo
 
 ## Development
 
-Run the tests with:
+Run the package tests with:
 
 ```bash
 julia --project=. -e 'using Pkg; Pkg.test()'
+```
+
+For a quick direct test run, you can also use:
+
+```bash
+julia --project=test test/runtests.jl
 ```
 
 The test suite covers the Julia ↔ FPCore conversion logic and macro expansion. It does not require Herbie or Racket.
