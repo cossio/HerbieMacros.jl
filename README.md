@@ -30,7 +30,7 @@ The first runtime call may take a while because the package needs to prepare Her
 
 - Internet access is required to download Racket or install Herbie if they are not already available.
 - Rust is typically required because Herbie's installation can build Rust dependencies.
-- Installed tools are stored under `~/.julia/herbie_macros/`.
+- Installed tools are stored under the first Julia depot (typically `~/.julia/herbie_macros/`).
 - A cached installation is reused on later runs.
 
 If Racket is already available on your system, the package will use it instead of downloading its own copy.
