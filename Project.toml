@@ -1,0 +1,12 @@
+name = "HerbieMacros"
+uuid = "db7554b1-3828-4a32-b78a-fdb1407eb12f"
+version = "0.1.0"
+
+[deps]
+Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
+
+[workspace]
+projects = ["test"]
+
+[compat]
+julia = "1.10"
