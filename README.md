@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/cossio/HerbieMacros.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/cossio/HerbieMacros.jl/actions/workflows/ci.yml)
 
-HerbieMacros.jl provides a Julia `@herbie` macro that sends floating-point expressions to [Herbie](https://herbie.uwplse.org/) and returns a numerically improved equivalent expression.
+HerbieMacros.jl provides a Julia `@herbie` macro that sends floating-point expressions to [Herbie](https://herbie.uwplse.org/), prints a numerically improved Julia expression, and returns that suggestion as a `String`.
 
 On first use, the package automatically finds or installs Racket, installs Herbie, and then runs the Herbie CLI for you.
 
@@ -22,7 +22,7 @@ using HerbieMacros
 # hypot(x, y)
 ```
 
-The macro expands your Julia expression into [FPCore](https://fpbench.org/), asks Herbie to improve it, and prints the resulting Julia expression. When Herbie reports error metrics, those are printed too.
+The macro expands your Julia expression into [FPCore](https://fpbench.org/), asks Herbie to improve it, prints the resulting Julia expression, and returns that printed suggestion as a `String`. When Herbie reports error metrics, those are printed too.
 
 ## First-run requirements
 
