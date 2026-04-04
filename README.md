@@ -49,7 +49,7 @@ Supported expression conversion includes common arithmetic, powers, roots, trigo
 Run the package tests with:
 
 ```bash
-julia --project=. -e 'using Pkg; Pkg.test()'
+julia --project=test -e 'using Pkg; Pkg.instantiate(); Pkg.test("HerbieMacros")'
 ```
 
 For a quick direct test run, you can also use:
