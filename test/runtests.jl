@@ -1,6 +1,7 @@
 using Test
-using HerbieMacros: expr_to_fpcore, free_variables, to_fpcore_body,
-    parse_sexp, extract_fpcore, sexp_to_julia_str, fpcore_to_julia
+using HerbieMacros: @herbie, expr_to_fpcore, free_variables, to_fpcore_body,
+    parse_sexp, extract_fpcore, sexp_to_julia_str, fpcore_to_julia,
+    herbie_query
 
 @testset "HerbieMacros" begin
 
@@ -105,5 +106,20 @@ using HerbieMacros: expr_to_fpcore, free_variables, to_fpcore_body,
         @test fpcore_to_julia("(FPCore (x y) (hypot x y))") == "hypot(x, y)"
         @test fpcore_to_julia("(FPCore (x) (log1p x))") == "log1p(x)"
         @test fpcore_to_julia("(FPCore (x) :name \"test\" (expm1 x))") == "expm1(x)"
+    end
+
+    @testset "@herbie macro expansion" begin
+        # Macro should expand to a herbie_query call with the correct FPCore string
+        ex = @macroexpand @herbie sqrt(x^2 + y^2)
+        @test ex.head === :call
+        @test ex.args[2] == "(FPCore (x y) (sqrt (+ (pow x 2) (pow y 2))))"
+
+        ex2 = @macroexpand @herbie exp(x) - 1
+        @test ex2.head === :call
+        @test ex2.args[2] == "(FPCore (x) (- (exp x) 1))"
+
+        ex3 = @macroexpand @herbie log(1 + x)
+        @test ex3.head === :call
+        @test ex3.args[2] == "(FPCore (x) (log (+ 1 x)))"
     end
 end
