@@ -10,7 +10,7 @@ On first use, the package automatically finds or installs Racket, installs Herbi
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/cossio/HerbieMacros.jl")
+Pkg.add("HerbieMacros")
 ```
 
 ## Usage
