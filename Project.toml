@@ -1,5 +1,6 @@
 name = "HerbieMacros"
 uuid = "db7554b1-3828-4a32-b78a-fdb1407eb12f"
+authors = ["Jorge FdCD <cossio@users.noreply.github.com>"]
 version = "0.1.0"
 
 [deps]
